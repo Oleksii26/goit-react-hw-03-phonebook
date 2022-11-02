@@ -4,7 +4,7 @@ import ContactList from "./Phonebook/ContactList";
 import Filter from "./Filter/Filter";
 
 
-
+const KEY_LOCAL = 'contacts'
 export class App extends React.Component {
   state = {
     contacts: [{ id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -43,7 +43,7 @@ export class App extends React.Component {
 
   componentDidMount() {
        
-    const todos = localStorage.getItem('contacts')
+    const todos = localStorage.getItem(KEY_LOCAL)
    
     const parseTodos = JSON.parse(todos)
     this.setState({contacts: parseTodos})
@@ -54,7 +54,7 @@ export class App extends React.Component {
     const { contacts } = this.state
    
     if (this.state.contacts === prevState.contacts) return 
-    localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+    localStorage.setItem(KEY_LOCAL, JSON.stringify(this.state.contacts))
    
   }
 
