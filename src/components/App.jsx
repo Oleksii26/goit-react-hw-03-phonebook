@@ -42,20 +42,21 @@ export class App extends React.Component {
   }
 
   componentDidMount() {
-       
+
     const todos = localStorage.getItem('contacts')
-   
     const parseTodos = JSON.parse(todos)
-    this.setState({contacts: parseTodos})
-    
+    if (parseTodos) {
+      this.setState({ contacts: parseTodos })
+    }
+
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { contacts } = this.state
-   
-    if (contacts === prevState.contacts) return 
+
+    if (contacts === prevState.contacts) return
     localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
-   
+
   }
 
   render() {
