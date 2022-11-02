@@ -6,7 +6,7 @@ class PhoneBook extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            contacts: [],
+           
             name: '',
             number: '',
         }
@@ -46,6 +46,7 @@ class PhoneBook extends React.Component {
             number: ''
         })
     }
+   
     render() {
         const { name, number } = this.state
         return <form className={css.form} onSubmit={this.handleFormSubmit}>
